@@ -3,7 +3,7 @@ const props = defineProps({
   customerTypes: String
 })
 
-let customerType: string | null = null
+let customerType: Ref<string | null> = ref(null)
 
 const expandedCustomerTypes = computed(() => {
   if(props.customerTypes) {
@@ -12,18 +12,19 @@ const expandedCustomerTypes = computed(() => {
 })
 
 const conditionMet = computed(() => {
-  if(expandedCustomerTypes.value && customerType) {
-    return expandedCustomerTypes.value.includes(customerType)
+  if(expandedCustomerTypes.value && customerType.value) {
+    return expandedCustomerTypes.value.includes(customerType.value)
   }
 })
 
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search)
-  customerType = urlParams.get('customerType')
+  customerType.value = urlParams.get('customerType')
 })
 </script>
+
 <template>
-  <template>
+  <template v-if="conditionMet">
     <slot/>
   </template>
 </template>
