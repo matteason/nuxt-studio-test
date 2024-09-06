@@ -1,0 +1,1 @@
+import{m as s,f as t,g as l,h as a,C as o}from"./D6gUm5jS.js";const n={};function r(e,c){return t(),l("table",null,[a("thead",null,[o(e.$slots,"head")]),a("tbody",null,[o(e.$slots,"body")])])}const f=s(n,[["render",r]]);export{f as default};
