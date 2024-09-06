@@ -1,5 +1,5 @@
 <template>
   <th>
-    <slot/>
+    <ContentSlot :use="$slots.default" unwrap="p" />
   </th>
 </template>
